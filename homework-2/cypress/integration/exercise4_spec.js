@@ -16,13 +16,23 @@ describe('Exercise 4', () => {
             cy.get('#action-canvas').click(150, 185);
             cy.get('#action-canvas').click(170, 165);
 
-           
+           /* **Env Variable is not cooperating :v**
+           cy.eyesOpen({
+                appName: 'Testing Playground',
+                testName: 'Red dots in position',
+              });
+              cy.eyesCheckWindow( );
+              cy.eyesClose();*/
         });
     });
-    /*context('Multiple clicks and force', () =>{
-        it('', () => {
-            cy.get('#couponCode1').type('I love Cypress{enter}');
-            cy.contains('Your form has been submitted!').should('be.visible');
+    context('Multiple clicks and force', () =>{
+        it('Should show a popover for each clicked element', () => {
+            cy.get('.label-primary').click({ multiple: true });
+            cy.get('.popover-content').contains('clicked').should('be.visible');
         });
-    });*/
+        it('Should force click on covered button', () => {
+            cy.get('.btn-primary').click({ force: true });
+            cy.contains('This popover shows up because we forced the click on the button').should('be.visible');
+        });
+    });
 });
