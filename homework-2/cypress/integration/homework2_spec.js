@@ -34,7 +34,6 @@ describe('Exercise 2', () => {
             cy.get('#password1').prev().should('have.css','border', '0px none rgb(255, 165, 0)')
         });
     });
-
     context('Part 2: Blur', () => {
         it('Should turn label and input border into red color', () => {
             cy.get('#fullName1').click();
